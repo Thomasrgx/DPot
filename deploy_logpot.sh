@@ -34,7 +34,7 @@ cd Log4Pot
 virtualenv env
 . env/bin/activate
 
-wget https://github.com/Thomasrgx/wordpot/blob/master/wordpot.conf
+wget https://raw.githubusercontent.com/Thomasrgx/wordpot/master/wordpot.conf
 sed -i '/HPFEEDS_.*/d' wordpot.conf
 sed -i "s/^HOST\s.*/HOST = '0.0.0.0'/" wordpot.conf
 cp wordpot.conf log4pot.conf
