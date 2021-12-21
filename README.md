@@ -10,14 +10,14 @@ A honeypot for the Log4Shell vulnerability (CVE-2021-44228).
 
 ## Usage
 
-1. Install PIP: `sudo apt install python3-pip`
-2. Install Azure: `sudo apt install azure`
-3. Install Poetry: `sudo pip3 install poetry`
-4. Fetch this GitHub repository `git clone https://github.com/thomaspatzke/Log4Pot.git`
+1. Install PIP: `apt install python3-pip`
+2. Install Azure: `apt install azure`
+3. Install Poetry: `pip3 install poetry`
+4. Fetch this GitHub repository `git clone https://github.com/Thomasrgx/Log4Pot.git`
 5. Change directory into the local copy with `cd Log4Pot`
-6. Install dependencies: `sudo poetry install`
+6. Install dependencies: `poetry install`
 7. Put parameters into log4pot.conf.
-8. Run: `sudo poetry run python log4pot.py @log4pot.conf`
+8. Run: `poetry run python log4pot.py @log4pot.conf`
 
 Alternatively, you can also run log4pot without external dependencies:
 ```
