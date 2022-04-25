@@ -58,8 +58,8 @@ class Logger:
     def log_request(self, server_port, client, port, request, headers, uuid):
         self.log("request", "A request was received", correlation_id=str(uuid), server_port=server_port, client=client, port=port, request=request, headers=dict(headers))
 
-    def log_exploit(self, location, payload, uuid):
-        self.log("exploit", "Exploit detected", correlation_id=str(uuid), location=location, payload=payload)
+    def log_exploit(self, location, payload, uuid, client):
+        self.log("exploit", "Exploit detected", correlation_id=str(uuid), location=location, payload=payload, client=client)
 
     def log_exception(self, e : Exception):
         self.log("exception", "Exception occurred", exception=str(e))
@@ -90,7 +90,7 @@ class Log4PotHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def find_exploit(self, location : str, content : str) -> bool:
         if (m := re_exploit.search(content)):
-            logger.log_exploit(location, m.group(0), self.uuid)
+            logger.log_exploit(location, m.group(0), self.uuid, self.client_address[0])
 
     def __getattribute__(self, __name: str) -> Any:
         if __name.startswith("do_"):
