@@ -134,7 +134,7 @@ argparser = Log4PotArgumentParser(
     fromfile_prefix_chars="@",
     )
 argparser.add_argument("--port", "-p", nargs="*", type=int, default=[8080], help="Listening port")
-argparser.add_argument("--log", "-l", type=str, default="log4pot.log", help="Log file")
+argparser.add_argument("--log", "-l", type=str, default="dpot.log", help="Log file")
 argparser.add_argument("--blob-connection-string", "-b", help="Azure blob storage connection string.")
 argparser.add_argument("--log-container", "-lc", default="logs", help="Azure blob container for logs.")
 argparser.add_argument("--log-blob", "-lb", default=socket.gethostname() + ".log", help="Azure blob for logs.")
@@ -151,10 +151,10 @@ logger.log_start()
 
 for thread in threads:
     thread.start()
-    print(f"Started Log4Pot server on port {thread.port}.")
+    print(f"Started DPot server on port {thread.port}.")
 
 for thread in threads:
     thread.join()
-    print(f"Stopped Log4Pot server on port {thread.port}.")
+    print(f"Stopped DPot server on port {thread.port}.")
 
 logger.close()
